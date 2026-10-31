@@ -4,334 +4,306 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rohan Nair</title>
-<meta name="description" content="Rohan Manu Nair: Georgia Tech CS student, software engineer, and founder of Omari.">
+<meta name="description" content="Rohan Nair builds robots, ML research, and agentic AI for healthcare. CS at Georgia Tech.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: two columns. A sticky identity rail on the left, a spec-sheet style record on the right; stacks on phones. */
+/* Layout: a single centered column. Story-first hero, a four-stop journey line, then themed card grids. */
 :root {
-  --bg: #f2f4f7;
-  --surface: #ffffff;
-  --ink: #131a26;
-  --muted: #566176;
-  --line: #d9dee7;
-  --accent: #1f5bd8;
-  --accent-soft: #e3ebfb;
-  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
-  --body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --navy: #08111f;
+  --panel: #0f1b2e;
+  --panel-hi: #14243c;
+  --line: #20324f;
+  --sky: #8fd0ff;
+  --sky-dim: #5a9fd4;
+  --sand: #f2c98b;
+  --text: #e6eef9;
+  --muted: #93a6c2;
+  --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --sans: "Manrope", "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  color-scheme: dark;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0e131c; --surface: #161d29; --ink: #e8ecf3; --muted: #9aa5b8;
-    --line: #273142; --accent: #7aa2ff; --accent-soft: #1c2a47; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0e131c; --surface: #161d29; --ink: #e8ecf3; --muted: #9aa5b8;
-  --line: #273142; --accent: #7aa2ff; --accent-soft: #1c2a47; color-scheme: dark;
-}
-
 * { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
 body {
-  background: var(--bg); color: var(--ink);
-  font: 15px/1.6 var(--body);
+  margin: 0; background: var(--navy); color: var(--text);
+  font: 16px/1.65 var(--sans);
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
+  background-image:
+    radial-gradient(900px 500px at 85% -10%, rgba(143, 208, 255, 0.10), transparent 60%),
+    radial-gradient(700px 400px at -10% 30%, rgba(143, 208, 255, 0.05), transparent 60%);
+  background-repeat: no-repeat;
 }
-a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+a { color: var(--sky); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; border-radius: 6px; }
+::selection { background: var(--sky); color: var(--navy); }
 
-.wrap {
-  max-width: 1120px; margin: 0 auto; padding-block: 56px 72px;
-  display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 64px;
+.wrap { max-width: 1040px; margin: 0 auto; }
+
+/* Top bar */
+.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 24px; flex-wrap: wrap; }
+.logo { font: 400 26px/1 var(--serif); color: var(--text); text-decoration: none; }
+.logo span { color: var(--sky); }
+.top nav { display: flex; gap: 20px; flex-wrap: wrap; }
+.top nav a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; }
+.top nav a:hover { color: var(--sky); }
+
+/* Hero */
+.hero { padding-block: 64px 40px; display: grid; gap: 28px; }
+.eyebrow { font: 500 12px/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--sky); margin: 0; }
+h1 {
+  font: 400 clamp(48px, 9vw, 96px)/0.95 var(--serif); letter-spacing: -0.02em; margin: 0; text-wrap: balance;
 }
-@media (max-width: 860px) {
-  .wrap { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-block: 32px 56px; }
+h1 em { color: var(--sky); }
+.lede { font-size: clamp(18px, 2.2vw, 21px); line-height: 1.55; max-width: 34em; margin: 0; color: var(--text); text-wrap: pretty; }
+.story { display: grid; gap: 16px; max-width: 40em; color: var(--muted); }
+.story p { margin: 0; text-wrap: pretty; }
+.story strong { color: var(--text); font-weight: 600; }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+.btn {
+  font: 600 14px/1 var(--sans); padding: 12px 16px; border-radius: 999px; text-decoration: none;
+  border: 1px solid var(--line); color: var(--text); background: var(--panel); cursor: pointer;
+}
+.btn:hover { border-color: var(--sky); color: var(--sky); }
+.btn.primary { background: var(--sky); color: var(--navy); border-color: var(--sky); }
+.btn.primary:hover { background: var(--text); border-color: var(--text); color: var(--navy); }
+
+/* Journey line: a real sequence, oldest to newest */
+.journey { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); position: relative; }
+.journey::before { content: ""; position: absolute; left: 6px; right: 6px; top: 6px; height: 1px; background: linear-gradient(90deg, var(--line), var(--sky)); }
+.journey li { position: relative; padding: 28px 16px 0 0; display: grid; gap: 4px; }
+.journey li::before {
+  content: ""; position: absolute; top: 0; left: 0; width: 13px; height: 13px; border-radius: 50%;
+  background: var(--navy); border: 2px solid var(--sky-dim);
+}
+.journey li:last-child::before { background: var(--sky); border-color: var(--sky); box-shadow: 0 0 0 6px rgba(143, 208, 255, 0.15); }
+.journey .yr { font: 500 12px/1 var(--mono); color: var(--sky); }
+.journey .what { font-weight: 600; font-size: 15px; line-height: 1.35; }
+.journey .where { font-size: 13px; color: var(--muted); line-height: 1.45; }
+@media (max-width: 720px) {
+  .journey { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .journey::before { left: 6px; right: auto; top: 6px; bottom: 6px; width: 1px; height: auto; background: linear-gradient(180deg, var(--line), var(--sky)); }
+  .journey li { padding: 0 0 0 32px; }
 }
 
-/* Identity rail */
-.rail { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 40px); align-self: start; display: grid; gap: 20px; }
-@media (max-width: 860px) { .rail { position: static; } }
-.mark {
-  width: 56px; height: 56px; border-radius: 14px; background: var(--accent); color: var(--surface);
-  display: grid; place-items: center; font: 700 22px/1 var(--display); letter-spacing: -0.02em;
+/* Work sections */
+.chapter { padding-block: 56px 8px; display: grid; gap: 24px; scroll-margin-top: 16px; }
+.chapter header { display: grid; gap: 8px; max-width: 40em; }
+.chapter h2 { font: 400 clamp(32px, 5vw, 44px)/1.05 var(--serif); margin: 0; letter-spacing: -0.01em; }
+.chapter h2 em { color: var(--sky); }
+.chapter header p { margin: 0; color: var(--muted); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+.card {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 22px;
+  display: flex; flex-direction: column; gap: 10px; min-width: 0;
+  transition: border-color .2s, background .2s, transform .2s;
 }
-h1 { font: 700 clamp(34px, 5vw, 44px)/1.05 var(--display); letter-spacing: -0.03em; margin: 0; text-wrap: balance; }
-.role { margin: 0; color: var(--muted); font-size: 16px; }
-.role strong { color: var(--ink); font-weight: 600; }
-.facts { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; font: 13px/1.5 var(--mono); color: var(--muted); }
-.links { display: flex; flex-wrap: wrap; gap: 8px; }
-.links a, .copy {
-  font: 500 13px/1 var(--body); padding: 9px 12px; border-radius: 8px; border: 1px solid var(--line);
-  background: var(--surface); color: var(--ink); text-decoration: none; cursor: pointer;
+.card:hover { border-color: var(--sky-dim); background: var(--panel-hi); }
+@media (prefers-reduced-motion: no-preference) { .card:hover { transform: translateY(-2px); } }
+.card .meta { display: flex; justify-content: space-between; gap: 12px; font: 12px/1.4 var(--mono); color: var(--muted); }
+.card .meta .kind { color: var(--sky); }
+.card h3 { font: 700 19px/1.3 var(--sans); margin: 0; letter-spacing: -0.01em; }
+.card h3 small { display: block; font-weight: 500; font-size: 14px; color: var(--muted); margin-top: 2px; letter-spacing: 0; }
+.card p { margin: 0; color: var(--muted); font-size: 15px; }
+.card p b { color: var(--sand); font-weight: 600; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+.tags span { font: 12px/1 var(--mono); padding: 6px 8px; border-radius: 6px; background: rgba(143, 208, 255, 0.08); color: var(--sky); border: 1px solid rgba(143, 208, 255, 0.14); }
+
+/* Skills + contact */
+.skills { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 24px 32px; margin: 0; }
+.skills dt { font: 500 12px/1 var(--mono); text-transform: uppercase; letter-spacing: 0.12em; color: var(--sky); margin-bottom: 8px; }
+.skills dd { margin: 0; color: var(--muted); font-size: 15px; }
+
+.contact {
+  margin-block: 72px 32px; padding: clamp(24px, 5vw, 48px); border-radius: 24px;
+  background: linear-gradient(135deg, var(--panel-hi), var(--panel)); border: 1px solid var(--line);
+  display: grid; gap: 16px;
 }
-.links a:hover, .copy:hover { border-color: var(--accent); color: var(--accent); }
-.email { font: 13px var(--mono); color: var(--ink); user-select: all; word-break: break-all; }
-.nav { display: grid; gap: 4px; border-top: 1px solid var(--line); padding-top: 16px; }
-.nav a { color: var(--muted); text-decoration: none; font-size: 14px; }
-.nav a:hover { color: var(--accent); }
-@media (max-width: 860px) { .nav { display: none; } }
-
-/* Record */
-main { display: grid; gap: 56px; min-width: 0; }
-.intro { font-size: 18px; line-height: 1.6; max-width: 62ch; margin: 0; text-wrap: pretty; }
-.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
-@media (max-width: 640px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.stat { background: var(--surface); padding: 16px; display: grid; gap: 4px; }
-.stat b { font: 500 24px/1.1 var(--mono); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
-.stat span { font-size: 12.5px; color: var(--muted); line-height: 1.4; }
-
-section { display: grid; gap: 20px; scroll-margin-top: 24px; }
-h2 {
-  font: 600 12px/1 var(--mono); text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted);
-  margin: 0; padding-bottom: 12px; border-bottom: 1px solid var(--line);
-}
-.entries { display: grid; gap: 28px; }
-.entry { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px; }
-@media (max-width: 640px) { .entry { grid-template-columns: minmax(0, 1fr); gap: 4px; } }
-.when { font: 12.5px/1.7 var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
-.entry h3 { font: 600 18px/1.3 var(--display); letter-spacing: -0.01em; margin: 0; }
-.entry h3 em { font-style: normal; color: var(--muted); font-weight: 500; }
-.blurb { margin: 4px 0 0; color: var(--muted); }
-.entry ul { margin: 10px 0 0; padding-left: 18px; display: grid; gap: 6px; max-width: 68ch; }
-.entry li::marker { color: var(--accent); }
-.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-.tag { font: 12px/1 var(--mono); padding: 5px 8px; border-radius: 6px; background: var(--accent-soft); color: var(--ink); }
-.flag { display: inline-block; font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 6px; }
-
-.featured { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 24px; }
-@media (max-width: 640px) { .featured { padding: 18px; } }
-
-.skills { display: grid; gap: 10px; margin: 0; }
-.skills div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px; }
-@media (max-width: 640px) { .skills div { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
-.skills dt { font: 12.5px/1.7 var(--mono); color: var(--muted); }
-.skills dd { margin: 0; }
-
-footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 20px; }
-@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
-
-body { margin: 0; }
+.contact h2 { font: 400 clamp(36px, 6vw, 56px)/1 var(--serif); margin: 0; }
+.contact h2 em { color: var(--sky); }
+.contact p { margin: 0; color: var(--muted); max-width: 36em; }
+.email { font: 15px var(--mono); color: var(--text); user-select: all; word-break: break-all; }
+footer { padding-block: 0 40px; color: var(--muted); font-size: 13px; }
 </style>
 </head>
 <body>
-
 <div class="wrap">
-  <aside class="rail">
-    <div class="mark" aria-hidden="true">RN</div>
-    <h1>Rohan Manu Nair</h1>
-    <p class="role"><strong>CS at Georgia Tech</strong> · software engineer and founder of Omari, building healthcare and AI systems.</p>
-    <ul class="facts">
-      <li>Atlanta, GA</li>
-      <li>B.S. Computer Science · May 2028</li>
-    </ul>
-    <div class="links">
-      <a href="https://www.linkedin.com/in/rohan-nair-489662327" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/rohanprofessional-1" target="_blank" rel="noopener">GitHub</a>
-      <button class="copy" id="copy-email" type="button">Copy email</button>
-    </div>
-    <div class="email" id="email">rnair95@gatech.edu</div>
-    <nav class="nav" aria-label="Sections">
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
+  <header class="top">
+    <a class="logo" href="#">Rohan<span>.</span></a>
+    <nav aria-label="Sections">
+      <a href="#robotics">Robotics</a>
       <a href="#research">Research</a>
-      <a href="#leadership">Leadership</a>
-      <a href="#skills">Skills</a>
+      <a href="#building">Building</a>
+      <a href="#healthcare">Healthcare AI</a>
+      <a href="#contact">Contact</a>
     </nav>
-  </aside>
+  </header>
 
-  <main>
-    <p class="intro">I build backend systems, data pipelines, and applied AI, mostly in healthcare. I'm founding Omari, a care coordination platform for orthopedics. Before that I modernized payment and ordering systems at Waystar and NCR Voyix, and I've published research on symbolic regression and engineering chatbots.</p>
-
-    <div class="stats" aria-label="Highlights">
-      <div class="stat"><b>16×</b><span>ordering speedup, Go service at NCR Voyix</span></div>
-      <div class="stat"><b>−80%</b><span>query latency on Waystar payments</span></div>
-      <div class="stat"><b>800+</b><span>downloads of RideGT on iOS</span></div>
-      <div class="stat"><b>0.936</b><span>test AUC, osteoarthritis model (SURA)</span></div>
+  <section class="hero">
+    <p class="eyebrow">CS @ Georgia Tech · Atlanta</p>
+    <h1>Hi, I'm Rohan. I build things that have to <em>work</em> in the real world.</h1>
+    <p class="lede">I started out building robots. Today I build agentic AI for healthcare, where software has to be just as reliable as a robot on a competition field.</p>
+    <div class="story">
+      <p>It began in high school with <strong>FRC Team 1746</strong>. As captain I wrote PID loops, wrangled our code, and helped the team reach 20th in the world. That turned into a job keeping warehouse robots running at <strong>Automation Direct</strong>, and later into leading Micromouse at <strong>RoboJackets</strong>, where I still design PCBs and maze-solving firmware.</p>
+      <p>Robots made me curious about how machines see and decide, so I moved into research. I trained vision models to catch manufacturing defects, built a chatbot that runs CFD simulations on its own, and found a two-gene signal for early osteoarthritis.</p>
+      <p>Then I went to work on healthcare payments at <strong>Waystar</strong> and saw how much of healthcare runs on slow handoffs between people and systems. That's what I work on now: AI agents for those handoffs, built carefully enough that clinicians can trust them.</p>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="#contact">Get in touch</a>
+      <a class="btn" href="https://github.com/rohanprofessional-1" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/rohan-nair-489662327" target="_blank" rel="noopener">LinkedIn</a>
     </div>
 
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="entries">
-        <div class="entry featured">
-          <div class="when">Jun 2026 – now</div>
-          <div>
-            <span class="flag">Founder</span>
-            <h3>Omari <em>· Technical Founder</em></h3>
-            <p class="blurb">Healthcare coordination platform for orthopedic care, now focused on pre-visit coordination.</p>
-            <ul>
-              <li>Architected a HIPAA-compliant clinical pathway engine that routes referrals from primary care to specialty clinics, with encryption, access control, and audit logging from day one.</li>
-              <li>Stage transitions follow AAOS Appropriate Use Criteria and require physician confirmation at every step, which keeps the product administrative rather than FDA-regulated.</li>
-              <li>The runtime is a deterministic tree-walker that limits the LLM to one variable per turn, with a two-phase questioning strategy shaped by clinician feedback.</li>
-              <li>Scoped Epic EHR integration across FHIR/App Orchard, HL7, and Care Everywhere. Runs on AWS (Fargate, private RDS, S3/CloudFront, Secrets Manager) inside a HIPAA-eligible boundary.</li>
-              <li>Pivoted in Oct 2026 to pre-visit coordination after interviewing 7 care coordinators. Secured a letter of intent from Duke; interviewed with Y Combinator.</li>
-            </ul>
-            <div class="tags"><span class="tag">AWS</span><span class="tag">Postgres + pgvector</span><span class="tag">FHIR / HL7</span><span class="tag">LLMs</span></div>
-          </div>
-        </div>
+    <ol class="journey" aria-label="My path so far">
+      <li><span class="yr">2020</span><span class="what">Robotics &amp; hardware</span><span class="where">FRC, warehouse robots, Micromouse</span></li>
+      <li><span class="yr">2024</span><span class="what">ML research</span><span class="where">Computer vision, CFD, genomics</span></li>
+      <li><span class="yr">2025</span><span class="what">Production software</span><span class="where">Payments, data pipelines, Go services</span></li>
+      <li><span class="yr">Now</span><span class="what">Agentic AI for healthcare</span><span class="where">Clinical workflows, LLM evaluation</span></li>
+    </ol>
+  </section>
 
-        <div class="entry">
-          <div class="when">May – Aug 2026</div>
-          <div>
-            <h3>NCR Voyix <em>· Software Engineer Intern</em></h3>
-            <p class="blurb">Next-gen SaaS for Voyix Cash Office and Back Office.</p>
-            <ul>
-              <li>Built a Go microservice for automated ordering in Voyix Back Office, replacing a legacy C++/.NET Windows DLL.</li>
-              <li>Reached a 16× speedup by parallelizing item-detail clients and order creation.</li>
-              <li>Aligned 3 cross-functional teams on the API contract for the ordering and replenishment flow.</li>
-            </ul>
-            <div class="tags"><span class="tag">Go</span><span class="tag">GCP</span><span class="tag">Kubernetes</span><span class="tag">React</span></div>
-          </div>
-        </div>
+  <section class="chapter" id="robotics">
+    <header>
+      <h2>Where it started: <em>robots</em></h2>
+      <p>Control loops, firmware, and circuit boards. This is where I learned that code has to survive contact with the physical world.</p>
+    </header>
+    <div class="grid">
+      <article class="card">
+        <div class="meta"><span class="kind">Competition</span><span>2020 – 2024</span></div>
+        <h3>FRC Team 1746 OTTO<small>Team Captain</small></h3>
+        <p>Implemented PID and bang-bang control across the robot's subsystems, managed our code repositories and competition logistics, and helped the team reach a <b>20th-place world ranking</b> in 2022–23.</p>
+        <div class="tags"><span>Control systems</span><span>PID</span><span>Leadership</span></div>
+      </article>
+      <article class="card">
+        <div class="meta"><span class="kind">Internship</span><span>2023 – 2024</span></div>
+        <h3>Automation Direct<small>Robotics Software Engineer Intern</small></h3>
+        <p>Kept production robots running, compared robot and human throughput from tote data, and wrote a Python job that captures about <b>100 barcoded tote images a day</b> for inventory accuracy.</p>
+        <div class="tags"><span>Python</span><span>Robotics</span><span>Excel VBA</span></div>
+      </article>
+      <article class="card">
+        <div class="meta"><span class="kind">Club</span><span>2024 – now</span></div>
+        <h3>RoboJackets Micromouse<small>Lead, RoboRacing</small></h3>
+        <p>Lead a team building autonomous maze-solving robots with floodfill and Dijkstra's in C++. I design custom PCBs and built a cross-platform tool for flashing Teensy boards.</p>
+        <div class="tags"><span>C++</span><span>PCB design</span><span>Teensy</span></div>
+      </article>
+      <article class="card">
+        <div class="meta"><span class="kind">Research team</span><span>VIP</span></div>
+        <h3>Automotive LiDAR<small>Software / Autonomy</small></h3>
+        <p>Part of a small autonomy subteam in Georgia Tech's Vertically Integrated Projects program, building autonomy software alongside the embedded firmware team.</p>
+        <div class="tags"><span>Autonomy</span><span>LiDAR</span></div>
+      </article>
+    </div>
+  </section>
 
-        <div class="entry">
-          <div class="when">May 2025 – May 2026</div>
-          <div>
-            <h3>Waystar <em>· Software Engineer Co-op, 2 semesters</em></h3>
-            <p class="blurb">Healthcare payments platform serving 1M+ providers.</p>
-            <ul>
-              <li>Cut query latency by 80% on a PHP + Vue.js payment platform with a key MySQL index and SQL optimizations.</li>
-              <li>Designed 5 end-to-end analytics pipelines (app → ETL → Snowflake → Looker) orchestrated with Airflow, including a recursive SQL query that tracks an estimate's full lifecycle.</li>
-              <li>Built an LLM code copilot on Google Vertex AI and a production AI evaluation framework in Opik with LLM-as-judge scoring and tool-call tracing.</li>
-              <li>Onboarded a full-time engineer and helped other teams debug infrastructure, including Kubernetes deployments.</li>
-            </ul>
-            <div class="tags"><span class="tag">MySQL</span><span class="tag">Airflow</span><span class="tag">Snowflake</span><span class="tag">Vertex AI</span><span class="tag">Opik</span></div>
-          </div>
-        </div>
+  <section class="chapter" id="research">
+    <header>
+      <h2>Teaching machines to <em>see and reason</em></h2>
+      <p>Research across manufacturing, engineering simulation, and genomics, with two papers presented so far.</p>
+    </header>
+    <div class="grid">
+      <article class="card">
+        <div class="meta"><span class="kind">Research</span><span>2024 – now</span></div>
+        <h3>Defect detection at GTMI<small>Undergraduate Research Assistant</small></h3>
+        <p>Fine-tuned a YOLO model on just 300+ images to spot manufacturing defects, reaching <b>95% holdout accuracy</b>. I also research ML for finite element analysis and helped develop Georgia Tech's AI minor programs.</p>
+        <div class="tags"><span>YOLO</span><span>Computer vision</span><span>FEA</span></div>
+      </article>
+      <article class="card">
+        <div class="meta"><span class="kind">Publication</span><span>IEOM 2025</span></div>
+        <h3>A cognitive chatbot for CFD<small>Presenter &amp; co-author, Singapore</small></h3>
+        <p>An NLP chatbot that turns plain-English questions into Ansys Fluent simulations and L-BFGS-B optimization, finding ideal airflow for server cooling stacks without manual parameter sweeps. <a href="https://doi.org/10.46254/AN15.20250535" target="_blank" rel="noopener">Read the paper</a></p>
+        <div class="tags"><span>NLP</span><span>Ansys Fluent</span><span>Optimization</span></div>
+      </article>
+      <article class="card">
+        <div class="meta"><span class="kind">Presentation</span><span>SURA 2026</span></div>
+        <h3>Early osteoarthritis diagnosis<small>Presenter, Stanford</small></h3>
+        <p>A QLattice symbolic regression model on gene-expression data. Our two-gene model hit <b>0.936 test AUC</b>, beating a published six-gene benchmark, and surfaced a new NUFIP2–GPR18 interaction.</p>
+        <div class="tags"><span>Symbolic regression</span><span>Genomics</span></div>
+      </article>
+    </div>
+  </section>
 
-        <div class="entry">
-          <div class="when">Aug 2024 – now</div>
-          <div>
-            <h3>Georgia Tech Manufacturing Institute <em>· Undergraduate Researcher</em></h3>
-            <ul>
-              <li>Fine-tuned a YOLO model on 300+ images for automated manufacturing defect detection, reaching 95% holdout accuracy.</li>
-              <li>Researched machine learning for finite element analysis on 3D models, and helped develop Georgia Tech's AI minor programs.</li>
-            </ul>
-          </div>
-        </div>
+  <section class="chapter" id="building">
+    <header>
+      <h2>Shipping <em>real software</em></h2>
+      <p>Production services, apps people actually use, and tools I built because I wanted them.</p>
+    </header>
+    <div class="grid">
+      <article class="card">
+        <div class="meta"><span class="kind">Internship</span><span>Summer 2026</span></div>
+        <h3>NCR Voyix<small>Software Engineer Intern</small></h3>
+        <p>Rebuilt the automated ordering platform for Voyix Back Office as a Go microservice, replacing a legacy C++/.NET DLL. Parallelizing item lookups and order creation made it <b>16× faster</b>.</p>
+        <div class="tags"><span>Go</span><span>GCP</span><span>Kubernetes</span></div>
+      </article>
+      <article class="card">
+        <div class="meta"><span class="kind">App</span><span>2025 – now</span></div>
+        <h3>RideGT<small>Co-creator</small></h3>
+        <p>A live iOS app that routes Georgia Tech students between buildings using real-time campus bus data. <b>800+ downloads</b> and up to 400 people using it at once. I run the CI/CD and test suites.</p>
+        <div class="tags"><span>iOS</span><span>Real-time data</span><span>CI/CD</span></div>
+      </article>
+      <article class="card">
+        <div class="meta"><span class="kind">Project</span><span>2026 – now</span></div>
+        <h3>Opscribe<small>Primary builder</small></h3>
+        <p>Ask questions about your infrastructure in plain English. A RAG pipeline over a graph of databases, APIs, and services, built on pgvector and Claude.</p>
+        <div class="tags"><span>RAG</span><span>pgvector</span><span>Claude</span></div>
+      </article>
+      <article class="card">
+        <div class="meta"><span class="kind">Hackathon</span><span>Sustainability</span></div>
+        <h3>RetroFi ATL<small>Full-stack engineer</small></h3>
+        <p>An AI copilot that helps owners of older Atlanta homes plan energy retrofits and find the incentives that pay for them.</p>
+        <div class="tags"><span>Full-stack</span><span>AI</span></div>
+      </article>
+    </div>
+  </section>
 
-        <div class="entry">
-          <div class="when">May 2023 – Aug 2024</div>
-          <div>
-            <h3>Automation Direct <em>· Robotics Software Engineer Intern</em></h3>
-            <ul>
-              <li>Maintained production robotic applications and built Excel macros comparing robot and human tote throughput.</li>
-              <li>Wrote a Python script capturing about 100 barcoded tote images a day to an FTP store for inventory accuracy.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="chapter" id="healthcare">
+    <header>
+      <h2>Agentic AI for <em>healthcare</em></h2>
+      <p>Healthcare is full of handoffs: referrals, payments, paperwork. I build AI that takes on that work safely, with humans signing off where it matters.</p>
+    </header>
+    <div class="grid">
+      <article class="card">
+        <div class="meta"><span class="kind">Co-op</span><span>2025 – 2026</span></div>
+        <h3>Waystar<small>Software Engineer Co-op, 2 semesters</small></h3>
+        <p>On a payments platform serving 1M+ providers, I cut query latency by <b>80%</b>, built five Airflow pipelines into Snowflake and Looker, and shipped an LLM code copilot on Vertex AI plus an evaluation framework in Opik.</p>
+        <div class="tags"><span>MySQL</span><span>Airflow</span><span>Vertex AI</span><span>Opik</span></div>
+      </article>
+      <article class="card">
+        <div class="meta"><span class="kind">Startup</span><span>2026 – now</span></div>
+        <h3>Omari<small>Technical Founder</small></h3>
+        <p>A care coordination platform for orthopedics, now focused on pre-visit coordination. The core is a HIPAA-compliant clinical pathway engine, built on AAOS criteria with physician sign-off at every step. Backed by a <b>letter of intent from Duke</b>.</p>
+        <div class="tags"><span>AWS</span><span>FHIR / HL7</span><span>LLM agents</span></div>
+      </article>
+    </div>
+  </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="entries">
-        <div class="entry">
-          <div class="when">Nov 2025 – now</div>
-          <div>
-            <h3>RideGT <em>· Co-creator</em></h3>
-            <p class="blurb">Live iOS transit app for Georgia Tech students.</p>
-            <ul>
-              <li>800+ downloads and a peak of 400 concurrent users.</li>
-              <li>Matches building-to-building trips against live campus bus data for real-time routing.</li>
-              <li>Own the CI/CD pipeline (90%+ uptime) and parallel test suites for iOS and web.</li>
-            </ul>
-            <div class="tags"><span class="tag">iOS</span><span class="tag">CI/CD</span><span class="tag">Real-time data</span></div>
-          </div>
-        </div>
-        <div class="entry">
-          <div class="when">Jan 2026 – now</div>
-          <div>
-            <h3>Opscribe <em>· Primary builder</em></h3>
-            <p class="blurb">Infrastructure knowledge platform.</p>
-            <ul>
-              <li>RAG pipeline (Grok embeddings, Postgres + pgvector, Claude for generation) that lets developers query database connections, API protocols, and other infrastructure through a graph of their systems.</li>
-            </ul>
-            <div class="tags"><span class="tag">RAG</span><span class="tag">pgvector</span><span class="tag">Claude</span></div>
-          </div>
-        </div>
-        <div class="entry">
-          <div class="when">Hackathon</div>
-          <div>
-            <h3>RetroFi ATL <em>· Full-stack engineer</em></h3>
-            <ul>
-              <li>AI copilot for retrofits and energy incentives on older Atlanta homes, built at a sustainability hackathon alongside a peer-to-peer e-commerce return intercept concept.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="chapter" id="skills">
+    <header><h2>The <em>toolbox</em></h2></header>
+    <dl class="skills">
+      <div><dt>Languages</dt><dd>Go, Python, Java, C++, C#, SQL, TypeScript, JavaScript, PHP</dd></div>
+      <div><dt>Frameworks</dt><dd>React, React Native, Vue.js, Django, Spring, React Flow</dd></div>
+      <div><dt>Cloud &amp; infra</dt><dd>AWS (Fargate, RDS, S3, CloudFront), GCP, Docker, Kubernetes</dd></div>
+      <div><dt>Data</dt><dd>Airflow, Snowflake, Looker, Postgres + pgvector, MySQL</dd></div>
+      <div><dt>AI / ML</dt><dd>RAG, LLM agents and evaluation, Vertex AI, YOLO, QLattice</dd></div>
+      <div><dt>Hardware &amp; health</dt><dd>PCB design, Teensy, PID control, HIPAA, Epic (FHIR, HL7)</dd></div>
+    </dl>
+  </section>
 
-    <section id="research">
-      <h2>Research &amp; publications</h2>
-      <div class="entries">
-        <div class="entry">
-          <div class="when">Spring 2026</div>
-          <div>
-            <h3>Symbolic regression for early osteoarthritis <em>· SURA, Stanford</em></h3>
-            <ul>
-              <li>QLattice model on PBMC microarray gene-expression data. A two-gene model reached 0.936 test AUC, beating a published six-gene benchmark (0.915).</li>
-              <li>Led preprocessing and feature selection; found a novel NUFIP2–GPR18 interaction. With Shivank Kancharla and Adesh Srivastava.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="entry">
-          <div class="when">Feb 2025</div>
-          <div>
-            <h3>A Cognitive Chatbot for Intelligent Engineering Analysis Decision Support <em>· IEOM 2025, Singapore</em></h3>
-            <ul>
-              <li>NLP chatbot that turns natural language queries into Ansys Fluent CFD runs and constrained L-BFGS-B optimization of inlet airflow for server cooling stacks, replacing manual parameter sweeps.</li>
-              <li>Peer-reviewed, presented, and published. S. Nair, R. Nair, J. Brahmbhatt, R. Jiao. <a href="https://doi.org/10.46254/AN15.20250535" target="_blank" rel="noopener">DOI 10.46254/AN15.20250535</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="contact" id="contact">
+    <h2>Let's <em>talk</em>.</h2>
+    <p>I'm always up for conversations about robotics, healthcare AI, or anything you're building. Email is the fastest way to reach me.</p>
+    <div class="email" id="email">rnair95@gatech.edu</div>
+    <div class="cta">
+      <a class="btn primary" href="mailto:rnair95@gatech.edu">Email me</a>
+      <button class="btn" id="copy-email" type="button">Copy email</button>
+      <a class="btn" href="https://www.linkedin.com/in/rohan-nair-489662327" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/rohanprofessional-1" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </section>
 
-    <section id="leadership">
-      <h2>Leadership</h2>
-      <div class="entries">
-        <div class="entry">
-          <div class="when">Aug 2024 – now</div>
-          <div>
-            <h3>RoboJackets <em>· Micromouse Lead</em></h3>
-            <ul><li>Lead autonomous maze-solving robots using floodfill and Dijkstra's in C++, design custom PCBs, and built a cross-platform tool for flashing Teensy microcontrollers.</li></ul>
-          </div>
-        </div>
-        <div class="entry">
-          <div class="when">VIP</div>
-          <div>
-            <h3>Automotive LiDAR <em>· Software/Autonomy subteam</em></h3>
-            <ul><li>Work with the embedded and firmware subteam on autonomy software.</li></ul>
-          </div>
-        </div>
-        <div class="entry">
-          <div class="when">2020 – 2024</div>
-          <div>
-            <h3>FRC Team 1746 OTTO <em>· Team Captain</em></h3>
-            <ul><li>Implemented PID and bang-bang control across subsystems and helped lead the team to a 20th-place world ranking in 2022–23.</li></ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <h2>Skills</h2>
-      <dl class="skills">
-        <div><dt>Languages</dt><dd>Go, Python, Java, C++, C#, SQL, TypeScript, JavaScript, PHP</dd></div>
-        <div><dt>Frameworks</dt><dd>React, React Native, Vue.js, Django, Spring, React Flow</dd></div>
-        <div><dt>Cloud &amp; infra</dt><dd>AWS (Fargate, RDS, S3, CloudFront, Secrets Manager), GCP, Docker, Kubernetes</dd></div>
-        <div><dt>Data</dt><dd>Airflow, Snowflake, Looker, PostgreSQL / pgvector, MySQL</dd></div>
-        <div><dt>AI / ML</dt><dd>RAG, LLM-as-judge evaluation, Opik, Vertex AI, YOLO fine-tuning, QLattice</dd></div>
-        <div><dt>Healthcare</dt><dd>HIPAA-aware architecture, Epic (FHIR, HL7, Care Everywhere)</dd></div>
-        <div><dt>Hardware</dt><dd>Teensy, custom PCB design, PID control, Ansys Fluent</dd></div>
-      </dl>
-    </section>
-
-    <footer>Rohan Manu Nair · Atlanta, GA · rnair95@gatech.edu</footer>
-  </main>
+  <footer>© 2026 Rohan Manu Nair · Atlanta, GA</footer>
 </div>
 
 <script>
